@@ -21,7 +21,7 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
-    path('home', views.index, name='home'),
+    path('', views.index, name='home'),
 ]
 
 if settings.DEBUG:

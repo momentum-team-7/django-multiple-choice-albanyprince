@@ -5,7 +5,7 @@ from .models import User, Snippet
 # Create your views here.
 
 @login_required
-def snippet_post(request):
+def index(request):
     snippets = Snippet.objects.all()
     return render(request, 'core/index.html', {'snippets': snippets})
 
