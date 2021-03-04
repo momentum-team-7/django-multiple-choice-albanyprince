@@ -1,4 +1,4 @@
-# Django Project Template
+# Django Project Template WTF.
 
 This project was generated from the Momentum Django project template. This template sets up some minimal changes:
 
