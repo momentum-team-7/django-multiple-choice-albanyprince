@@ -11,4 +11,4 @@ class Snippet(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True, related_name=snippets)
 
     def __str__(self):
-        return f"{self.title} | {self.language}"
+        return f"{self.user} | {self.code}"
