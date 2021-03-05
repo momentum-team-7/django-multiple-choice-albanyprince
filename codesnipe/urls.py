@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
     path('', views.index, name='home'),
+    path('developer/<int:pk>/profile', views.developer_profile, name="developer-profile")
 ]
 
 if settings.DEBUG:
