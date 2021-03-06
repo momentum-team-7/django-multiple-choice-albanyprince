@@ -22,7 +22,7 @@ def add_snippet(request):
             snippet = form.save(commit=False)
             snippet.user = request.user
             snippet.save()
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect('/')
     else:
         form = SnippetForm()
     return render(request, 'core/add_snippet.html', {'form': form})            
@@ -34,8 +34,14 @@ def edit_snippet(request, pk):
         form = SnippetForm(request.POST, instance='snippet')
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect('/')
 
     else:
         snippet = SnippetForm(instance='snippet')
     return render(request, 'core/edit_snippet.html', {'form':form, 'snippet':snippet})
+
+
+def delete_snippet(request, pk):
+    snippet = get_object_or_404(Snippet, pk=pk)
+    snippet.delete()
+    return HttpResponseRedirect('')
