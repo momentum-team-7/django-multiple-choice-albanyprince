@@ -30,8 +30,9 @@ def edit_snippet(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
     if request.method == 'POST':
         form = SnippetForm(request.POST, instance='snippet')
-        if form.is_valid()
-        return HttpResponseRedirect('')
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('')
 
     else:
         snippet = SnippetForm(instance='snippet')
