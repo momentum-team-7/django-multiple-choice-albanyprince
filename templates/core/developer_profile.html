@@ -13,9 +13,12 @@
             <p> Code: {{snippet.code}}</p>
             </div>
             <p>Language: {{snippet.language}}</p>
+            <button><a href="{% url 'delete-snippet' pk=snippet.pk %}">DELETE SNIPPET</a></button>
         </div>
         </li>
     </ul>
     {% endfor %}
+    <div class="edit-delete-buttons">
     <button><a href="{% url 'add-snippet' %}">NEW SNIPPET</a></button>
+    </div>
 {% endblock %}
