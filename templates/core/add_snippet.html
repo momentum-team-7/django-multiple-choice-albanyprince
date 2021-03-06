@@ -2,9 +2,11 @@
 
 {% block content %}
 
-
-
-
+<form action="{% url 'add-snippet' %}" method="post">
+    {% crsf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Post">
+</form>
 
 
 {% end block %}
