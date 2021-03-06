@@ -23,6 +23,7 @@ urlpatterns = [
     path('accounts/', include('registration.backends.default.urls')),
     path('', views.index, name='home'),
     path('developer/<int:pk>/profile', views.developer_profile, name="developer-profile")
+
     path('snippet/<int:pk>/edit', views.edit_snippet, name="edit-snippet"),
 ]
 
