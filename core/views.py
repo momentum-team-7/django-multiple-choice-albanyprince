@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import User, Snippet
+from .forms import SnippetForm
 # Create your views here.
 
 @login_required
@@ -13,6 +14,16 @@ def index(request):
 def developer_profile(request, pk):
     user = get_object_or_404(User, pk=pk)
     return render(request, 'core/developer_profile.html', {'user':user})
+
+def add_snippet(request):
+    if request.method =='POST':
+        form = SnippetForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('')
+    else:
+        form = SnippetForm()
+    return render(request, 'core/add_snippet.html', {'form': form})            
 
 
 def edit_snippet(request, pk):
