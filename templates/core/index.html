@@ -5,10 +5,15 @@
 <body>
     
     {% for snippet in snippets %}
-    <p><a href="{% url 'developer-profile' snippet.pk %}">
-        {{snippet.user}}
-        {{snippet.code}}</a></p>
-   
+        <ul>
+        <li>
+            <p>User: <a href="{% url 'developer-profile' snippet.pk %}">
+                {{snippet.user}}</a></p>
+                <div class="code-block">
+                {{snippet.code}}
+                </div>
+            </li>
+        </ul>
     {% endfor %}
 
 </body>

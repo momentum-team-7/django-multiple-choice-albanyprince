@@ -2,13 +2,20 @@
 
 
 {% block content %}
+    <h3>Welcome to {{user}}'s Page</h3>
 
     {% for snippet in user.snippets.all %}
-    <div>
-        <p>{{snippet.title}}</p>
-        <p>{{snippet.code}}</p>
-        <p>{{snippet.language}}</p>
-    </div>
+    <ul>
+        <li>
+        <div>
+            <p>Title: {{snippet.title}}</p>
+            <div class="code-block">
+            <p> Code: {{snippet.code}}</p>
+            </div>
+            <p>Language: {{snippet.language}}</p>
+        </div>
+        </li>
+    </ul>
     {% endfor %}
     
 {% endblock %}
