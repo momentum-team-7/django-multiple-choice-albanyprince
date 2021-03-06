@@ -25,8 +25,6 @@ urlpatterns = [
     path('developer/<int:pk>/profile', views.developer_profile, name="developer-profile"),
     path('snippet/<int:pk>/edit', views.edit_snippet, name="edit-snippet"),
     path('snippet/new', views.add_snippet, name="add-snippet"),
-    path('snippet/<int:pk>/edit', views.edit_snippet, name="edit-snippet"),
-
 ]
 
 if settings.DEBUG:
