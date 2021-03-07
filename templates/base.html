@@ -6,14 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Snipe</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header class="page-header">
         <div class="container">
             <h1><a href="/">CODE SNIPE</a></h1>
         </div>
+        <div class="topnav">
+            <a class="active" href="core/index.html">HOME</a>
+            <!-- search bar right align -->
+            <div class="search">
+                <form action="{% url 'search_results' %}" method="get">
+                    <input name="q" type="text" placeholder="SEARCH CODE SNIPE">
+                    <button type="submit">SEARCH</button>
+                </form>
+            </div>
     </header>
+
+    <br></br>
+
+    <br></br>
+    <br></br>
+
+   <main class="container">   
     {% block content %}
     {% endblock content %}
+   </main> 
 </body>
 </html>

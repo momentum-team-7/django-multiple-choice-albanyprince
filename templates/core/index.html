@@ -3,10 +3,7 @@
 {% block content %}
 
 <body>
-    <form action="{% url 'search_results' %}" method="get">
-        <input name="q" type="text" placeholder="SEARCH CODE SNIPE">
-        <button type="submit">SEARCH</button>
-    </form>
+   
     <details>
         <summary>LIBRARY</summary>
         <li>{{ snippet.code }}</li>
@@ -14,13 +11,15 @@
 
     {% for snippet in snippets %}
         <ul>
-        <li>
+        <div class="hp-snip">
+            <li>
             <p>User: <a href="{% url 'developer-profile' user.pk %}">
                 {{snippet.user}}</a></p>
                 <div class="code-block">
                 {{snippet.code}}
                 </div>
             </li>
+        </div>    
         </ul>
     {% endfor %}
 
@@ -28,3 +27,4 @@
 </html>
 
 {% endblock %}
+
