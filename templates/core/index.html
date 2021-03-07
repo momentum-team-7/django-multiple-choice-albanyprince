@@ -18,8 +18,13 @@
                 <div class="code-block">
                 {{snippet.code}}
                 </div>
+
             </li>
         </div>    
+
+                <button><a href="{% url 'add-snippet' %}">COPY SNIPPET</a></button>
+        </li>
+
         </ul>
     {% endfor %}
 

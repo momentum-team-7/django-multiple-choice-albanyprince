@@ -14,7 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views
 from django.conf import settings
+from django.http import HttpResponseRedirect
 from django.urls import include, path
 from core import views
 from core.views import SearchResultsView 
@@ -28,6 +30,8 @@ urlpatterns = [
     path('snippet/new', views.add_snippet, name="add-snippet"),
     path('snippet/<int:pk>/delete', views.delete_snippet, name="delete-snippet"),
     path('search/', SearchResultsView.as_view(), name='search_results'),
+    # path('accounts/logout/', views.LogoutView, name="logout"),
+    path('snippet/<int:pk>/copy', views.copy_snippet, name="copy-snippet"),
 ]
 
 if settings.DEBUG:
