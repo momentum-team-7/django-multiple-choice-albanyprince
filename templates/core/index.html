@@ -3,7 +3,15 @@
 {% block content %}
 
 <body>
-    
+    <form action="{% url 'search_results' %}" method="get">
+        <input name="q" type="text" placeholder="SEARCH CODE SNIPE">
+        <button type="submit">SEARCH</button>
+    </form>
+    <details>
+        <summary>LIBRARY</summary>
+        <li>{{ snippet.code }}</li>
+    </details>
+
     {% for snippet in snippets %}
         <ul>
         <li>
