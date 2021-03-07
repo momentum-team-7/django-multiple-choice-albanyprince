@@ -17,15 +17,17 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 from core import views
+from core.views import SearchResultsView 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('registration.backends.default.urls')),
+    path('accounts/', include('registration.backends.simple.urls')),
     path('', views.index, name='home'),
     path('developer/<int:pk>/profile', views.developer_profile, name="developer-profile"),
     path('snippet/<int:pk>/edit', views.edit_snippet, name="edit-snippet"),
     path('snippet/new', views.add_snippet, name="add-snippet"),
     path('snippet/<int:pk>/delete', views.delete_snippet, name="delete-snippet"),
+    path('search/', SearchResultsView.as_view(), name='search_results'),
 ]
 
 if settings.DEBUG:
