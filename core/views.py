@@ -4,6 +4,9 @@ from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import User, Snippet
 from .forms import SnippetForm
+from django.views.generic import TemplateView, ListView
+from django.db.models import Q
+
 # Create your views here.
 
 @login_required
@@ -45,3 +48,20 @@ def delete_snippet(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
     snippet.delete()
     return HttpResponseRedirect('')
+
+# class HomePageView(TemplateView):
+#     template_name = 'home.html'
+
+
+class SearchResultsView(ListView):
+    model = Snippet
+    template_name = 'core/search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        snippet_list = Snippet.objects.filter(Q(code__icontains=query) | Q(language__icontains=query) |Q(title__icontains=query))
+        
+        return snippet_list
+# def results(request, pk):
+#     search_input = request.GET['query']
+#     results = Sinppet.obejcts.filter()        
