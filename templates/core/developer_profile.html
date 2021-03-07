@@ -14,6 +14,7 @@
             </div>
             <p>Language: {{snippet.language}}</p>
             <button><a href="{% url 'delete-snippet' pk=snippet.pk %}">DELETE SNIPPET</a></button>
+            <button><a href="{% url 'edit-snippet' pk=snippet.pk %}">EDIT SNIPPET</a></button>
         </div>
         </li>
     </ul>
