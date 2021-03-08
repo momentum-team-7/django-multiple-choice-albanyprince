@@ -48,15 +48,10 @@ def edit_snippet(request, pk):
 
 def copy_snippet(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
-    if request.method == 'POST':
-        form = SnippetForm(request.POST, instance=snippet)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-
-    else:
-        form = SnippetForm(instance=snippet)
-    return render(request, 'core/copy_snippet.html', {'form':form, 'snippet':snippet})
+    snippet.pk = None
+    snippet.user = request.user
+    snippet.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def delete_snippet(request, pk):
