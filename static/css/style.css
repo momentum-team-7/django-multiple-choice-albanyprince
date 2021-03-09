@@ -82,7 +82,7 @@ details {
 
 .snippet-box {
     border-radius: 25px 50px;
-    border: 10px solid black;
+    border: 2px solid black;
     padding: 30px;
 
 
@@ -90,7 +90,7 @@ details {
 
 .hp-snip {
     border-radius: 25px 50px;
-    border: 10px solid black;
+    border: 2px solid black;
     padding: 30px;
 }
 input {
