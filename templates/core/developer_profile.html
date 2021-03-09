@@ -10,8 +10,8 @@
         <li>
         <div class="snippet-box">
             <p>Title: {{snippet.title}}</p>
-            <div class="code-block">
-            <p> Code: <pre><code class="language-markup">{{snippet.code}}</code></pre></p>
+            <div class="code-block">     
+            Code: <pre><code class="language-{{snippet.language}}">{{snippet.code}}</code></pre>
             </div>
             <p>Language: {{snippet.language}}</p>
             {% if snippet.user == request.user %}
