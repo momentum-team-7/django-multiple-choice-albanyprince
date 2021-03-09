@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
-{% load gravatar %}
 {% block content %}
     <h2>Welcome to {{user}}'s Page</h2>
+
+    <img src="{{ profile.user_image.url }}"/> 
+    {% if profile.user == request.user %}  
+    <button><a href="{% url 'edit_profile' pk=profile.pk %}">EDIT PROFILE</a></button>
+    {% endif %}
+
     <img src="{% gravatar_url user.email 150 %}"/>
     <br>
     <br>
     <button><a href="{% url 'add-snippet' %}">NEW SNIPPET</a></button>
+
 
     {% for snippet in user.snippets.all %}
     <ul>

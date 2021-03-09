@@ -33,6 +33,7 @@ urlpatterns = [
     path('snippet/<int:pk>/delete', views.delete_snippet, name="delete-snippet"),
     path('search/', SearchResultsView.as_view(), name='search_results'),
     path('snippet/<int:pk>/copy', views.copy_snippet, name="copy-snippet"),
+    path('profile/<int:pk>/edit', views.edit_profile, name="edit-profile"),
 ]
 
 if settings.DEBUG:
