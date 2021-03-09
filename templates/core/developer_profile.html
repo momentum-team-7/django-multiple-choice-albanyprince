@@ -14,8 +14,10 @@
             <p> Code: {{snippet.code}}</p>
             </div>
             <p>Language: {{snippet.language}}</p>
-            <button><a href="{% url 'delete-snippet' pk=snippet.pk %}">DELETE SNIPPET</a></button>
+            {% if snippet.user == request.user %}
+            <button class="delete-buttons"><a href="{% url 'delete-snippet' pk=snippet.pk %}">DELETE SNIPPET</a></button>
             <button><a href="{% url 'edit-snippet' pk=snippet.pk %}">EDIT SNIPPET</a></button>
+            {% endif %}
         </div>
         </li>
     </ul>
