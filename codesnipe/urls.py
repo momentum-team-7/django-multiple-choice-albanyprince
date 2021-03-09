@@ -32,7 +32,6 @@ urlpatterns = [
     path('snippet/new', views.add_snippet, name="add-snippet"),
     path('snippet/<int:pk>/delete', views.delete_snippet, name="delete-snippet"),
     path('search/', SearchResultsView.as_view(), name='search_results'),
-    # path('accounts/logout/', views.LogoutView, name="logout"),
     path('snippet/<int:pk>/copy', views.copy_snippet, name="copy-snippet"),
 ]
 
