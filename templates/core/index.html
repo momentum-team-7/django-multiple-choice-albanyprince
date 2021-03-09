@@ -13,7 +13,7 @@
             <p>User: <a href="{% url 'developer-profile' pk=snippet.user.pk %}">
                 {{snippet.user}}</a></p>
                 <div class="code-block">
-                {{snippet.code}}
+                    <pre><code class="language-{{snippet.language}}">{{snippet.code}}</code></pre>
                 </div>
 
             </li>
