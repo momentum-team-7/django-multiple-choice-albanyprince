@@ -15,8 +15,8 @@
             </div>
             <p>Language: {{snippet.language}}</p>
             {% if snippet.user == request.user %}
-            <button class="delete-buttons"><a href="{% url 'delete-snippet' pk=snippet.pk %}">DELETE SNIPPET</a></button>
-            <button><a href="{% url 'edit-snippet' pk=snippet.pk %}">EDIT SNIPPET</a></button>
+            <button data-url="{% url 'delete-snippet' pk=snippet.pk %}" class="delete-buttons" id={{snippet.pk}}>DELETE SNIPPET</button>
+            <button><a class="edit-button" href="{% url 'edit-snippet' pk=snippet.pk %}">EDIT SNIPPET</a></button>
             {% endif %}
         </div>
         </li>
