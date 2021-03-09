@@ -25,7 +25,13 @@
         </div>
         <div class="topnav">
             <a href="/">HOME</a>
-            <a href="developer/{{user.pk}}/profile">MY PROFILE</a>
+            {% if request.user.pk != none %}
+            <a href="{% url 'developer-profile' pk=request.user.pk %}">MY PROFILE</a>
+            <a href="/accounts/logout">LOG OUT</a>
+            {% endif %}
+            {% if user.pk == Null %}
+            <a href="/">LOG IN</a>
+            {% endif %}
             <!-- search bar right align -->
             <div class="search">
                 <form action="{% url 'search_results' %}" method="get">
