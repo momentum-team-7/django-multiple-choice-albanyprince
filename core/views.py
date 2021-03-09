@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import User
@@ -55,24 +55,9 @@ def copy_snippet(request, pk):
 
 
 def delete_snippet(request, pk):
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        snippet = get_object_or_404(Snippet, pk=pk)
-        snippet.delete()
-        data = {
-            'deleted':'YES'
-        }
-    else:
-        data = {
-            'deleted':'nope'
-        }
-    return JsonResponse(data)
-
-
-
-# def delete_snippet(request, pk):
-#     snippet = get_object_or_404(Snippet, pk=pk)
-#     snippet.delete()
-#     return HttpResponseRedirect('/')
+    snippet = get_object_or_404(Snippet, pk=pk)
+    snippet.delete()
+    return HttpResponseRedirect('/')
 
 # class HomePageView(TemplateView):
 #     template_name = 'home.html'

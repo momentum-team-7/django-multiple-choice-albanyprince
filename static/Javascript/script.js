@@ -1,9 +1,8 @@
 deleteButtons = document.querySelectorAll('.delete-buttons')
-
-for (let button of deleteButtons){
+for (let button of deleteButtons) {
     button.addEventListener('click', event => {
         const snippetElement = event.target.parentElement
-        const deleteURL = event.target.dataset.url
+        const deleteURL = `artists/${event.target.id}'/delete`
         fetch (deleteURL, {
             headers: {
                 'Accept': 'application/json',
@@ -14,6 +13,6 @@ for (let button of deleteButtons){
         .then(data => {
             console.log(data)
             snippetElement.remove()
+            })
         })
-    })
-}
+    }
