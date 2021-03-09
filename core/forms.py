@@ -1,5 +1,5 @@
 from django import forms
-from .models import Snippet
+from .models import Snippet, Profile
 
 class SnippetForm(forms.ModelForm):
     class Meta:
@@ -8,3 +8,7 @@ class SnippetForm(forms.ModelForm):
 
 
 
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['user', 'username', 'user_image']

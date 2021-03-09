@@ -34,6 +34,7 @@ urlpatterns = [
     path('search/', SearchResultsView.as_view(), name='search_results'),
     # path('accounts/logout/', views.LogoutView, name="logout"),
     path('snippet/<int:pk>/copy', views.copy_snippet, name="copy-snippet"),
+    path('profile/<int:pk>/edit', views.edit_profile, name="edit-profile"),
 ]
 
 if settings.DEBUG:
