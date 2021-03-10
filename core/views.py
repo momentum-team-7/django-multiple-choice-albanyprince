@@ -17,7 +17,8 @@ def index(request):
 
 @login_required
 def developer_profile(request, pk):
-    profile = get_object_or_404(Profile, user=request.user)
+    user = get_object_or_404(User, pk=pk)
+    profile = get_object_or_404(Profile, user=user)
     return render(request, 'core/developer_profile.html', {'profile':profile})
 
 def add_snippet(request):

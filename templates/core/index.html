@@ -3,13 +3,11 @@
 {% block content %}
 
 <body>
-   
 
     {% for snippet in snippets %}
         <ul>
         <div class="hp-snip">
             <li>
-               
             <p>User: <a href="{% url 'developer-profile' pk=snippet.user.pk %}">
                 {{snippet.user}}</a></p>
                 <div class="code-block">
