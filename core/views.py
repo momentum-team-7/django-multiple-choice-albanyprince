@@ -39,7 +39,7 @@ def edit_snippet(request, pk):
         form = SnippetForm(request.POST, instance=snippet)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/success')
 
     else:
         form = SnippetForm(instance=snippet)
@@ -81,12 +81,6 @@ def delete_snippet(request, pk):
     return JsonResponse(data)
 
 
-
-# def delete_snippet(request, pk):
-#     snippet = get_object_or_404(Snippet, pk=pk)
-#     snippet.delete()
-#     return HttpResponseRedirect('/')
-
 # class HomePageView(TemplateView):
 #     template_name = 'home.html'
 
@@ -103,3 +97,7 @@ class SearchResultsView(ListView):
 # def results(request, pk):
 #     search_input = request.GET['query']
 #     results = Sinppet.obejcts.filter()        
+
+
+def success_window(request):
+    return render(request, 'core/success.html', {})
