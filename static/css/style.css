@@ -122,5 +122,10 @@ label {
 select {
     border-radius: 20px;
     border: solid;
-    height: 40px
+    height: 40px;
+}
+
+.edit-new-buttons {
+    display: flexbox;
+    display: inline-flex;
 }

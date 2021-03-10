@@ -7,14 +7,15 @@
     <img src="{{ profile.user_image.url }}" style="width:200px;height:200px;"> 
     {% endif %}
 
-    {% if profile.user == request.user %}
-    <button><a href="{% url 'edit-profile' pk=user.pk %}">EDIT PROFILE</a></button>
-    {% endif %}
-
-    
     <br>
-    <br>
-    <button><a href="{% url 'add-snippet' %}">NEW SNIPPET</a></button>
+    <div class="edit-new-buttons">
+        {% if profile.user == request.user %}
+        <button><a href="{% url 'edit-profile' pk=user.pk %}">EDIT PROFILE</a></button>
+        {% endif %}
+        <br>
+        <br>
+        <button><a href="{% url 'add-snippet' %}">NEW SNIPPET</a></button>
+    </div>
 
 
     {% for snippet in user.snippets.all %}
