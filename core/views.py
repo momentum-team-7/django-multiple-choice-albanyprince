@@ -50,7 +50,7 @@ def edit_snippet(request, pk):
 @login_required
 def edit_profile(request, pk):
     user = get_object_or_404(User, pk=pk)
-    profile = get_object_or_404(Profile, pk=user.pk)
+    profile = Profile.objects.get(user=user)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
