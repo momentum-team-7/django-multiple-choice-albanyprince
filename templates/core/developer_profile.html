@@ -6,7 +6,10 @@
     {% if profile.user_image %}
     <img src="{{ profile.user_image.url }}" style="width:200px;height:200px;"> 
     {% endif %}
+
+    {% if profile.user == request.user %}
     <button><a href="{% url 'edit-profile' pk=profile.pk %}">EDIT PROFILE</a></button>
+    {% endif %}
 
     
     <br>
@@ -23,7 +26,7 @@
             Code: <pre><code class="language-{{snippet.language}}">{{snippet.code}}</code></pre>
             </div>
             <p>Language: {{snippet.language}}</p>
-            {% if snippet.user == request.user %}
+            {% if profile.user == request.user %}
             <button data-url="{% url 'delete-snippet' pk=snippet.pk %}" class="delete-buttons" id={{snippet.pk}}>DELETE SNIPPET</button>
             <button><a class="edit-button" href="{% url 'edit-snippet' pk=snippet.pk %}">EDIT SNIPPET</a></button>
             {% endif %}

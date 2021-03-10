@@ -49,7 +49,8 @@ def edit_snippet(request, pk):
 
 @login_required
 def edit_profile(request, pk):
-    profile = get_object_or_404(Profile, pk=pk)
+    user = get_object_or_404(User, pk=pk)
+    profile = get_object_or_404(Profile, pk=user.pk)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -62,7 +63,7 @@ def edit_profile(request, pk):
 
     else:
         form = ProfileForm(instance=profile)
-    return render(request, 'core/edit_profile.html', {'form':form})           
+    return render(request, 'core/edit_profile.html', {'form':form, 'profile':profile})           
 
 
 def copy_snippet(request, pk):
