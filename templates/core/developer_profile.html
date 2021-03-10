@@ -2,10 +2,10 @@
 
 {% block content %}
     <h2>Welcome to {{user}}'s Page</h2>
-    {% for profile in profile.user_image %}
+    {% if profile.user_image %}
     <img src="{{ profile.user_image.url }}"> 
-    {% endfor %}
-
+    {% endif %}
+    <a href="{% url 'edit-profile' pk=profile.pk %}">EDIT PROFILE</a>
     
     <br>
     <br>
