@@ -5,6 +5,7 @@
     {% if profile.user_image %}
     <img src="{{ profile.user_image.url }}"> 
     {% endif %}
+    <a href="{% url 'edit-profile' pk=profile.pk %}">EDIT PROFILE</a>
 
     
     <br>

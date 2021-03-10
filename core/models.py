@@ -5,10 +5,12 @@ from django.urls import reverse
 class User(AbstractUser):
     pass
 
+
+
 class Profile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     username = models.CharField(max_length=40)
-    user_image = models.ImageField(upload_to='images/', blank=True, null=True)
+    user_image = models.ImageField(upload_to='images', blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('developer-profile', args=[str(self.id)])
