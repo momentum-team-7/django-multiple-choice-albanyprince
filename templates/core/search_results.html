@@ -3,12 +3,21 @@
 {% block content %}
 <h2>Search Results</h2>
 
+
 <ul>
     {% for snippet in object_list %}
-     <li>
-         {{ snippet }}
-     </li>
-     {% endfor %}
+    <div class='hp-snip'>
+    <li>
+        {{ snippet }}
+    </li>
+        <div class="code-block"></div>
+        <pre><code class="language-{{snippet.language}}">{{snippet.code}}</code></pre>
+        </div>  
+    </div>
+    {% endfor %}
 </ul>
 
+
 {% endblock %}
+
+
