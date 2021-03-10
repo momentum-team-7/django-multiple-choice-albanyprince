@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import User
-from .models import Snippet
+from .models import Snippet, Profile
 from .forms import SnippetForm
 from django.views.generic import TemplateView, ListView
 from django.db.models import Q
@@ -44,6 +44,19 @@ def edit_snippet(request, pk):
     else:
         form = SnippetForm(instance=snippet)
     return render(request, 'core/edit_snippet.html', {'form':form, 'snippet':snippet})
+
+@login_required
+def edit_profile(request, pk):
+    snippet = get_object_or_404(Profile, pk=pk)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'core/edit_snippet.html', {'form':form, 'profile':profile})    
 
 
 def copy_snippet(request, pk):

@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     # Third-party
     'debug_toolbar',
     'django_extensions',
-    'django_gravatar',
 
     # Project-specific
     'core',
@@ -143,3 +142,6 @@ INTERNAL_IPS = [
 ]
 
 ACCOUNT_ACTIVATION_DAYS = 7
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load gravatar %}
+
 {% block content %}
 
 <body>
@@ -9,7 +9,7 @@
         <ul>
         <div class="hp-snip">
             <li>
-             <img src="{% gravatar_url user.email 150 %}"/>   
+               
             <p>User: <a href="{% url 'developer-profile' pk=snippet.user.pk %}">
                 {{snippet.user}}</a></p>
                 <div class="code-block">
@@ -20,7 +20,7 @@
         </div>    
 
                 <button><a href="{% url 'copy-snippet' pk=snippet.pk %}">SNIPE</a></button>
-        </li>
+            </li>
 
         </ul>
     {% endfor %}

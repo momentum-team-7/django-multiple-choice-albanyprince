@@ -12,7 +12,7 @@ django-debug-toolbar = "*"
 werkzeug = "*"
 django-environ = "*"
 django-registration-redux = "*"
-django-gravatar2 = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.9"
