@@ -16,9 +16,6 @@
                 {{snippet.user.profile.username}}</a></p>
                 <p>TITLE: {{snippet.title}}</p>
 
-            <p>User: <a href="{% url 'developer-profile' pk=snippet.user.pk %}">
-                {{snippet.user}}</a></p>
-
                 <div class="code-block">
                     <pre><code class="language-{{snippet.language}}">{{snippet.code}}</code></pre>
                 </div>
