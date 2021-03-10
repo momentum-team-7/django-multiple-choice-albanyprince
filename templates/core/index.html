@@ -4,14 +4,16 @@
 
 <body>
    
-
     {% for snippet in snippets %}
         <ul>
         <div class="hp-snip">
             <li>
-               
-            <p>User: <a href="{% url 'developer-profile' pk=snippet.user.pk %}">
-                {{snippet.user}}</a></p>
+                {% if snippet.user.profile.user_image %}
+                <img src="{{ snippet.user.profile.user_image.url }}" style="width:200px;height:200px;"> 
+                {% endif %}
+                <p>USER: <a href="{% url 'developer-profile' pk=snippet.user.pk %}">
+                {{snippet.user.profile.username}}</a></p>
+                <p>TITLE: {{snippet.title}}</p>
                 <div class="code-block">
                     <pre><code class="language-{{snippet.language}}">{{snippet.code}}</code></pre>
                 </div>

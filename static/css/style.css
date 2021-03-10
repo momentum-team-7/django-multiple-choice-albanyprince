@@ -39,7 +39,7 @@ h1 {
 }
 
 h2 {
-    color:#5f0f40;
+    color: black;
     font-size: 50px;
     font-family: 'Bebas Neue', cursive;
 }
@@ -47,6 +47,7 @@ h2 {
 p {
     color: black;
     font-family: 'Roboto', cursive;
+    font-size: 20px;
 }
 
 ul, li {
@@ -64,7 +65,8 @@ button {
     border: solid;
     background-color: #e36414;
     border-color: #fb8b24;
-    height: 30px;
+    height: 50px;
+    width: 70px;
     text-align: center;
     font-family:'Bebas Neue', cursive;
 }
@@ -111,4 +113,14 @@ a.edit-button {
 
     text-decoration: none;
     color: initial;
+}
+
+label {
+    font-family: 'Bebas Neue', cursive;
+}
+
+select {
+    border-radius: 20px;
+    border: solid;
+    height: 40px
 }

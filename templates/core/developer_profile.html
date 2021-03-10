@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Welcome to {{user}}'s Page</h2>
+    <h2>Welcome to {{profile.username}}'s Page</h2>
     {% if profile.user_image %}
-    <img src="{{ profile.user_image.url }}"> 
+    <img src="{{ profile.user_image.url }}" style="width:200px;height:200px;"> 
     {% endif %}
-    <a href="{% url 'edit-profile' pk=profile.pk %}">EDIT PROFILE</a>
+    <button><a href="{% url 'edit-profile' pk=profile.pk %}">EDIT PROFILE</a></button>
 
     
     <br>
