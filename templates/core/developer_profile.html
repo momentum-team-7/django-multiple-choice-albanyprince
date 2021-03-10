@@ -6,7 +6,10 @@
     {% if profile.user_image %}
     <img src="{{ profile.user_image.url }}" style="width:200px;height:200px;"> 
     {% endif %}
+
+    {% if profile.user == request.user %}
     <button><a href="{% url 'edit-profile' pk=profile.pk %}">EDIT PROFILE</a></button>
+    {% endif %}
 
     
     <br>
