@@ -36,6 +36,7 @@ urlpatterns = [
     path('profile/<int:pk>/copy', views.edit_profile, name="edit-profile"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [

@@ -17,8 +17,9 @@ def index(request):
 
 @login_required
 def developer_profile(request, pk):
-    user = get_object_or_404(User, pk=pk)
-    profile = Profile.objects.get(user=user)
+
+    profile = get_object_or_404(Profile, user=request.user)
+
     return render(request, 'core/developer_profile.html', {'profile':profile})
 
 def add_snippet(request):
@@ -36,11 +37,12 @@ def add_snippet(request):
 @login_required
 def edit_snippet(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         form = SnippetForm(request.POST, instance=snippet)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(profile.get_absolute_url())
 
     else:
         form = SnippetForm(instance=snippet)
@@ -82,12 +84,6 @@ def delete_snippet(request, pk):
     return JsonResponse(data)
 
 
-
-# def delete_snippet(request, pk):
-#     snippet = get_object_or_404(Snippet, pk=pk)
-#     snippet.delete()
-#     return HttpResponseRedirect('/')
-
 # class HomePageView(TemplateView):
 #     template_name = 'home.html'
 
@@ -104,3 +100,7 @@ class SearchResultsView(ListView):
 # def results(request, pk):
 #     search_input = request.GET['query']
 #     results = Sinppet.obejcts.filter()        
+
+
+def success_window(request):
+    return render(request, 'core/success.html', {})
