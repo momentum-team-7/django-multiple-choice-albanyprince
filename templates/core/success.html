@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>YOUR EDIT WAS A SUCCESS!</h1>
+
+<div class='success-profile-button'>
+{% if request.user.pk != none %}
+<button><a href="{% url 'developer-profile' pk=request.user.pk %}">BACK TO MY PROFILE</a></button>
+{% endif %}
+</div>
+
+{% endblock %}
