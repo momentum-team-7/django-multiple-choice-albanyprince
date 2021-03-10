@@ -17,8 +17,8 @@ def index(request):
 
 @login_required
 def developer_profile(request, pk):
-    user = get_object_or_404(User, pk=pk)
-    return render(request, 'core/developer_profile.html', {'user':user})
+    profile = get_object_or_404(Profile, user=request.user)
+    return render(request, 'core/developer_profile.html', {'profile':profile})
 
 def add_snippet(request):
     if request.method =='POST':
@@ -35,11 +35,12 @@ def add_snippet(request):
 @login_required
 def edit_snippet(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         form = SnippetForm(request.POST, instance=snippet)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/success')
+            return HttpResponseRedirect(profile.get_absolute_url())
 
     else:
         form = SnippetForm(instance=snippet)
