@@ -51,10 +51,14 @@ def edit_snippet(request, pk):
 def edit_profile(request, pk):
     profile = get_object_or_404(Profile, pk=pk)
     if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES)
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
-            form.save()
-            return render(request, 'core/devloper_profile.html', {'form': form, 'profile': profile})
+            profile.user_image=form.cleaned_data["user_image"]
+            # profile.username()
+            profile.save()
+            return HttpResponseRedirect(f'/developer/{request.user.pk}/profile')
+        else:
+            print('form is invalid')
 
     else:
         form = ProfileForm(instance=profile)
