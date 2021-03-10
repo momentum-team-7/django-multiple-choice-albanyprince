@@ -1,5 +1,5 @@
 from django import forms
-from .models import Snippet, Profile
+from .models import User, Snippet, Profile
 
 class SnippetForm(forms.ModelForm):
     class Meta:
